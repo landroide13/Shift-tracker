@@ -7,7 +7,7 @@ import { Shift } from '../models/shift';
 export class DataService {
 
   Shifts: Shift[] = [
-    {id: 1, date: '13-10-2022', hours: 7}
+    {id: 1, date: '2022-13-10', hours: 7}
   ];
 
   constructor() { }

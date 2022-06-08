@@ -15,7 +15,7 @@ export class HomePage {
 
   shiftForm: FormGroup;
 
-  constructor(public formBuilder: FormBuilder, private dataServ: DataService) {
+  constructor(public formBuilder: FormBuilder, private dataServ: DataService){
     this.shiftForm = this.formBuilder.group({
       date: [''],
       hours: ['']
@@ -41,6 +41,7 @@ export class HomePage {
   }
 
   getHours(){
+    this.total = 0;
     this.shifts.forEach(el => {
       this.total += el.hours
       console.log("Get hour " + this.total);

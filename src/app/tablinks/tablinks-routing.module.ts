@@ -5,7 +5,7 @@ import { TablinksPage } from './tablinks.page';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'tablinks',
     component: TablinksPage,
     children:
     [
@@ -27,6 +27,11 @@ const routes: Routes = [
         pathMatch: 'full'
       },
     ]
+  },
+  {
+    path: '',
+    redirectTo: '/tablinks/home',
+    pathMatch: 'full'
   }
 ];
 
