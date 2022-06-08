@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data/data.service';
 
 @Component({
   selector: 'app-history',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistoryPage implements OnInit {
 
-  constructor() { }
+  shifts = [];
+
+  constructor(private dataServ: DataService) { }
+
+  getShifts(){
+    this.shifts = this.dataServ.getShifts()
+  }
 
   ngOnInit() {
+    this.getShifts()
   }
 
 }

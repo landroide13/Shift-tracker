@@ -6,6 +6,47 @@
 
 <ion-content>
 
-  <h2>History</h2>
+  <ion-grid> 
+    <ion-col class="ion-text-center">
+      <h3>History</h3>
+    </ion-col>
+  </ion-grid>
+
+  <ion-list class="ion-no-margin ion-padding">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-label>
+            <h2 class="ion-text-center">Date</h2>
+          </ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-label>
+            <h2 class="ion-text-center">Hours</h2>
+          </ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-item *ngFor="let sh of shifts">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-label>
+              <h2 class="ion-text-center">{{ sh.date | date }}</h2>
+            </ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-label>
+              <h2 class="ion-text-center">{{ sh.hours }}</h2>
+            </ion-label>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+    </ion-item>
+  </ion-list>
+
+
 
 </ion-content>
