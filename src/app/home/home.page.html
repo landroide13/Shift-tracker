@@ -1,7 +1,6 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="warning">
     <ion-title>
-      Pay Tracker
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -10,11 +9,11 @@
 
   <ion-grid> 
     <ion-col class="ion-text-center">
-      <h3>Create Payment</h3>
+      <h3>Create Shift</h3>
     </ion-col>
   </ion-grid>
   
-  <ion-list class="ion-margin">
+  <ion-list class="ion-margin ion-padding">
     <ion-item *ngFor="let sh of shifts">
       <ion-label>
         <h2>{{ sh.date }}</h2>
@@ -22,14 +21,24 @@
       <ion-label>
         <h2>{{ sh.hours }}</h2>
       </ion-label>
+      <ion-button color="danger" (click)="delete(sh.id)"><ion-icon name="trash-outline"></ion-icon></ion-button>
     </ion-item>
   </ion-list>
 
+  <ion-grid> 
+    <ion-col class="ion-text-center">
+      <h4>
+       Total Hours: {{ total }}
+      </h4>
+    </ion-col>
+  </ion-grid>
 
-  <form [formGroup]="shiftForm" (ngSubmit)="onSubmit()" novalidate>
+
+  <form [formGroup]="shiftForm" (ngSubmit)="onSubmit()" novalidate class="ion-padding ion-margin">
     <ion-item lines="full">
       <ion-label position="floating"></ion-label>
       <ion-input formControlName="date" type="date" required></ion-input>
+      <!-- <ion-datetime formControlName="date" locale="fr-FR"></ion-datetime> -->
     </ion-item>
     <ion-item lines="full">
       <ion-label position="floating">Hours</ion-label>
@@ -37,7 +46,7 @@
     </ion-item>
     <ion-row>
       <ion-col>
-        <ion-button type="submit" color="success" expand="block">Submit</ion-button>
+        <ion-button type="submit" color="warning" expand="block">Submit</ion-button>
       </ion-col>
     </ion-row>
 

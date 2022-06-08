@@ -11,6 +11,8 @@ export class HomePage {
 
   shifts = [];
 
+  total = 0;
+
   shiftForm: FormGroup;
 
   constructor(public formBuilder: FormBuilder, private dataServ: DataService) {
@@ -19,6 +21,7 @@ export class HomePage {
       hours: ['']
    })
    this.getShifts();
+   this.getHours();
   }
 
   getShifts(){
@@ -28,6 +31,21 @@ export class HomePage {
   async addShift(){
     await this.dataServ.addShift(this.shiftForm.value.date, this.shiftForm.value.hours);
     this.getShifts();
+    this.getHours();
+  }
+
+  async delete(id){
+    this.dataServ.removeShift(id)
+    this.getShifts();
+    this.getHours();
+  }
+
+  getHours(){
+    this.shifts.forEach(el => {
+      this.total += el.hours
+      console.log("Get hour " + this.total);
+      return this.total
+    })
   }
 
   onSubmit(){ 
